@@ -1,0 +1,146 @@
+[029.193]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.198]  Client 0009: <HEL.R01>   
+[029.202]  Client 0005:     <HDR>   
+[029.206]  Client 0027:         <HDR.control_id V="00022"/>   
+[029.210]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[029.214]  Client 0050:         <HDR.creation_dttm V="2026-09-02T20:52:09+00:00"/>   
+[029.218]  Client 0006:     </HDR>   
+[029.222]  Client 0005:     <DEV>   
+[029.226]  Client 0038:         <DEV.device_id V="F8:DC:7A:47:2D:63"/>   
+[029.230]  Client 0029:         <DEV.serial_id V="20001515"/>   
+[029.233]  Client 0035:         <DEV.manufacturer_name V="QUIDEL"/>   
+[029.237]  Client 0025:         <DEV.hw_version V="1.0"/>   
+[029.240]  Client 0027:         <DEV.sw_version V="2.1.2"/>   
+[029.243]  Client 0028:         <DEV.device_name V="Sofia"/>   
+[029.246]  Client 0005:         <DCP>   
+[029.249]  Client 0034:             <DCP.application_timeout V="100"/>   
+[029.253]  Client 0006:         </DCP>   
+[029.256]  Client 0005:         <DSC>   
+[029.259]  Client 0035:             <DSC.connection_profile_cd V="CS"/>   
+[029.262]  Client 0034:             <DSC.topics_supported_cd V="DTV"/>   
+[029.266]  Client 0051:             <DSC.directives_supported_cd V="START_CONTINUOUS"/>   
+[029.270]  Client 0030:             <DSC.max_message_sz V="1000"/>   
+[029.273]  Client 0006:         </DSC>   
+[029.276]  Client 0006:     </DEV>   
+[029.279]  Client 0010: </HEL.R01>   
+[029.282]  Server 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.285]  Server 0009: <ACK.R01>   
+[029.288]  Server 0005:     <HDR>   
+[029.291]  Server 0027:         <HDR.control_id V="00021"/>   
+[029.294]  Server 0027:         <HDR.version_id V="POCT1"/>   
+[029.298]  Server 0050:         <HDR.creation_dttm V="2026-09-02T13:52:10-08:00"/>   
+[029.302]  Server 0006:     </HDR>   
+[029.305]  Server 0005:     <ACK>   
+[029.308]  Server 0021:         <ACK.type_cd V="AA"/>   
+[029.312]  Server 0031:         <ACK.ack_control_id V="00022"/>   
+[029.316]  Server 0006:     </ACK>   
+[029.320]  Server 0010: </ACK.R01>   
+[029.347]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.351]  Client 0009: <DST.R01>   
+[029.354]  Client 0005:     <HDR>   
+[029.357]  Client 0027:         <HDR.control_id V="00023"/>   
+[029.360]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[029.363]  Client 0050:         <HDR.creation_dttm V="2026-09-02T20:52:10+00:00"/>   
+[029.367]  Client 0006:     </HDR>   
+[029.370]  Client 0005:     <DST>   
+[029.373]  Client 0048:         <DST.status_dttm V="2026-09-02T20:52:10+00:00"/>   
+[029.376]  Client 0033:         <DST.new_observations_qty V="0"/>   
+[029.379]  Client 0025:         <DST.condition_cd V="R"/>   
+[029.382]  Client 0006:     </DST>   
+[029.386]  Client 0010: </DST.R01>   
+[029.389]  Server 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.391]  Server 0009: <ACK.R01>   
+[029.394]  Server 0005:     <HDR>   
+[029.397]  Server 0027:         <HDR.control_id V="00022"/>   
+[029.400]  Server 0027:         <HDR.version_id V="POCT1"/>   
+[029.404]  Server 0050:         <HDR.creation_dttm V="2026-09-02T13:52:10-08:00"/>   
+[029.406]  Server 0006:     </HDR>   
+[029.409]  Server 0005:     <ACK>   
+[029.412]  Server 0021:         <ACK.type_cd V="AA"/>   
+[029.414]  Server 0031:         <ACK.ack_control_id V="00023"/>   
+[029.418]  Server 0006:     </ACK>   
+[029.421]  Server 0010: </ACK.R01>   
+[029.424]  Server 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.427]  Server 0009: <DTV.R01>   
+[029.429]  Server 0005:     <HDR>   
+[029.432]  Server 0027:         <HDR.control_id V="00023"/>   
+[029.436]  Server 0027:         <HDR.version_id V="POCT1"/>   
+[029.439]  Server 0050:         <HDR.creation_dttm V="2026-09-02T13:52:10-08:00"/>   
+[029.442]  Server 0006:     </HDR>   
+[029.444]  Server 0005:     <DTV>   
+[029.447]  Server 0038:         <DTV.command_cd V="START_CONTINUOUS"/>   
+[029.451]  Server 0006:     </DTV>   
+[029.454]  Server 0010: </DTV.R01>   
+[029.484]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.488]  Client 0009: <ACK.R01>   
+[029.491]  Client 0005:     <HDR>   
+[029.493]  Client 0027:         <HDR.control_id V="00024"/>   
+[029.497]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[029.500]  Client 0050:         <HDR.creation_dttm V="2026-09-02T20:52:10+00:00"/>   
+[029.504]  Client 0006:     </HDR>   
+[029.506]  Client 0005:     <ACK>   
+[029.510]  Client 0021:         <ACK.type_cd V="AA"/>   
+[029.512]  Client 0031:         <ACK.ack_control_id V="00023"/>   
+[029.516]  Client 0006:     </ACK>   
+[029.520]  Client 0010: </ACK.R01>   
+[029.534]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.538]  Client 0009: <OBS.R02>   
+[029.541]  Client 0005:     <HDR>   
+[029.543]  Client 0027:         <HDR.control_id V="00021"/>   
+[029.546]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[029.549]  Client 0050:         <HDR.creation_dttm V="2026-09-02T20:52:09+00:00"/>   
+[029.553]  Client 0006:     </HDR>   
+[029.556]  Client 0005:     <SVC>   
+[029.559]  Client 0022:         <SVC.role_cd V="CAL"/>   
+[029.562]  Client 0053:         <SVC.observation_dttm V="2026-07-02T17:35:22+00:00"/>   
+[029.566]  Client 0024:         <SVC.reason_cd V="RES"/>   
+[029.570]  Client 0005:         <CTC>   
+[029.573]  Client 0034:             <CTC.name V="Calibration Result"/>   
+[029.576]  Client 0028:             <CTC.lot_number V="292704"/>   
+[029.580]  Client 0005:             <OBS>   
+[029.583]  Client 0052:                 <OBS.observation_id V="Overall Result" SN="QUIDEL"/>   
+[029.587]  Client 0035:                 <OBS.qualitative_value V="passed"/>   
+[029.590]  Client 0022:                 <OBS.method_cd V="M"/>   
+[029.594]  Client 0006:             </OBS>   
+[029.597]  Client 0006:         </CTC>   
+[029.600]  Client 0005:         <OPR>   
+[029.604]  Client 0027:             <OPR.operator_id V="1234"/>   
+[029.607]  Client 0026:             <OPR.name V="Supervisor"/>   
+[029.610]  Client 0006:         </OPR>   
+[029.613]  Client 0006:     </SVC>   
+[029.616]  Client 0010: </OBS.R02>   
+[029.620]  Server 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.623]  Server 0009: <ACK.R01>   
+[029.627]  Server 0005:     <HDR>   
+[029.629]  Server 0027:         <HDR.control_id V="00024"/>   
+[029.633]  Server 0027:         <HDR.version_id V="POCT1"/>   
+[029.636]  Server 0050:         <HDR.creation_dttm V="2026-09-02T13:52:10-08:00"/>   
+[029.640]  Server 0006:     </HDR>   
+[029.643]  Server 0005:     <ACK>   
+[029.646]  Server 0021:         <ACK.type_cd V="AA"/>   
+[029.650]  Server 0031:         <ACK.ack_control_id V="00021"/>   
+[029.655]  Server 0006:     </ACK>   
+[029.658]  Server 0010: </ACK.R01>   
+[029.685]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.689]  Client 0009: <END.R01>   
+[029.692]  Client 0005:     <HDR>   
+[029.695]  Client 0027:         <HDR.control_id V="00025"/>   
+[029.699]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[029.704]  Client 0050:         <HDR.creation_dttm V="2026-09-02T20:52:10+00:00"/>   
+[029.707]  Client 0006:     </HDR>   
+[029.710]  Client 0005:     <TRM>   
+[029.715]  Client 0024:         <TRM.reason_cd V="USR"/>   
+[029.718]  Client 0006:     </TRM>   
+[029.721]  Client 0010: </END.R01>   
+[029.725]  Server 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[029.730]  Server 0009: <ACK.R01>   
+[029.736]  Server 0005:     <HDR>   
+[029.740]  Server 0027:         <HDR.control_id V="00025"/>   
+[029.743]  Server 0027:         <HDR.version_id V="POCT1"/>   
+[029.747]  Server 0050:         <HDR.creation_dttm V="2026-09-02T13:52:10-08:00"/>   
+[029.751]  Server 0006:     </HDR>   
+[029.755]  Server 0005:     <ACK>   
+[029.759]  Server 0021:         <ACK.type_cd V="AA"/>   
+[029.763]  Server 0031:         <ACK.ack_control_id V="00025"/>   
+[029.767]  Server 0006:     </ACK>   
+[029.771]  Server 0010: </ACK.R01>   

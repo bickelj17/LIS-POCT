@@ -1,0 +1,9 @@
+# Python build artifacts (regenerate automatically, shouldn't be in git)
+__pycache__/
+*.pyc
+
+# Distributable zips built by build_dist.py - regenerate, don't commit
+*.zip
+
+# macOS Finder metadata
+.DS_Store

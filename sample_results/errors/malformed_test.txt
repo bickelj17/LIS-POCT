@@ -1,0 +1,20 @@
+[001.000]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[001.001]  Client 0009: <OBS.R01>   
+[001.002]  Client 0005:     <HDR>   
+[001.003]  Client 0027:         <HDR.control_id V="00001"/>   
+[001.004]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[001.005]  Client 0006:     </HDR>   
+[001.006]  Client 0005:     <SVC>   
+[001.007]  Client 0024:         <SVC.role_cd V="OBS"/>   
+[001.008]  Client 0006:     <SVC   
+[001.009]  Client 0010: </OBS.R01>   
+[001.010]  Client 0038: <?xml version="1.0" encoding="UTF-8"?>   
+[001.011]  Client 0009: <OBS.R01>   
+[001.012]  Client 0005:     <HDR>   
+[001.013]  Client 0027:         <HDR.control_id V="00002"/>   
+[001.014]  Client 0027:         <HDR.version_id V="POCT1"/>   
+[001.015]  Client 0006:     </HDR>   
+[001.016]  Client 0005:     <SVC>   
+[001.017]  Client 0024:         <SVC.role_cd V="INVALID"/>   
+[001.018]  Client 0006:     </SVC>   
+[001.019]  Client 0010: </OBS.R01>   
