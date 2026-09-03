@@ -9,6 +9,7 @@ from poct_line_checks import (
     check_control_id_sequencing,
     check_dates,
     check_bad_characters,
+    extract_device_info,
     extract_results,
     format_local_datetime,
     add_info,
@@ -42,9 +43,14 @@ def analyze(lines):
     if not results:
         add_error(findings, "No Patient/QC/Calibration result was found in this file")
 
+    # Device info (serial number, SW version) comes from one HEL.R01
+    # handshake per file, not once per result - shown after the first
+    # result's heading rather than repeated for every result.
+    device_lines = describe_device(messages)
+
     summary = []
     for i, result in enumerate(results, start=1):
-        summary.extend(describe_result(result, i, len(results)))
+        summary.extend(describe_result(result, i, len(results), device_lines if i == 1 else None))
 
     # Summary ("<type> test checked" + the readable fields) goes first,
     # the detailed structural/handshake findings follow.
@@ -63,7 +69,19 @@ def _add_time_line(lines, label, iso_string):
         add_info(lines, f"{label}: {iso_string} (could not read this date/time)")
 
 
-def describe_result(result, index, total):
+def describe_device(messages):
+    """Build the "Serial Number" / "Sofia 2 SW Version" lines from the
+    file's HEL.R01 handshake message."""
+    lines = []
+    device = extract_device_info(messages)
+    if device.get("serial_id"):
+        add_info(lines, f"Serial Number: {device['serial_id']}")
+    if device.get("sw_version"):
+        add_info(lines, f"Sofia 2 SW Version: {device['sw_version']}")
+    return lines
+
+
+def describe_result(result, index, total, device_lines=None):
     """Build the human-readable summary lines for one result."""
     lines = []
     label = RESULT_LABELS.get(result["type"], "Unknown")
@@ -71,6 +89,9 @@ def describe_result(result, index, total):
     add_info(lines, heading)
 
     _add_time_line(lines, "Message created", result["creation_dttm"])
+
+    if device_lines:
+        lines.extend(device_lines)
 
     if result["type"] == "patient":
         add_info(lines, f"Patient ID: {result['patient_id']}")

@@ -170,8 +170,12 @@ def check_message_structure(messages, findings):
             else:
                 if not child_value(dev, "device_id"):
                     add_error(findings, f"{sender} HEL.R01: DEV is missing device_id")
-                if not child_value(dev, "serial_id"):
+                serial_id = child_value(dev, "serial_id")
+                if not serial_id:
                     add_error(findings, f"{sender} HEL.R01: DEV is missing serial_id")
+                elif not (len(serial_id) == 8 and serial_id.isdigit()):
+                    add_error(findings, f'{sender} HEL.R01: serial number "{serial_id}" should be exactly '
+                                         f'8 digits')
 
         elif tag == "ACK.R01":
             ack = find_descendant(msg.root, "ACK")
@@ -218,12 +222,25 @@ def _check_obs_content(msg, tag, sender, findings):
         pt = find_descendant(svc, "PT")
         if pt is None:
             add_error(findings, f"{sender} {tag}: Patient result is missing the PT (patient) section")
-        elif not child_present(pt, "patient_id"):
-            add_error(findings, f"{sender} {tag}: PT is missing the patient_id field entirely")
-        # A blank patient_id (element present, empty value) is valid - some
-        # workflows legitimately don't collect one - so it's not checked here.
-        if find_descendant(svc, "ORD") is None:
+        else:
+            if not child_present(pt, "patient_id"):
+                add_error(findings, f"{sender} {tag}: PT is missing the patient_id field entirely")
+            # A blank patient_id (element present, empty value) is valid -
+            # some workflows legitimately don't collect one - only length
+            # is checked here, not presence.
+            patient_id = child_value(pt, "patient_id") or ""
+            if len(patient_id) > 20:
+                add_error(findings, f"{sender} {tag}: Patient ID is too long "
+                                     f"({len(patient_id)} characters, max 20)")
+
+        ord_el = find_descendant(svc, "ORD")
+        if ord_el is None:
             add_error(findings, f"{sender} {tag}: Patient result is missing the ORD (order) section")
+        else:
+            order_id = child_value(ord_el, "order_id") or ""
+            if len(order_id) > 20:
+                add_error(findings, f"{sender} {tag}: Order Number is too long "
+                                     f"({len(order_id)} characters, max 20)")
         container_tag = "PT"
     else:
         ctc = find_descendant(svc, "CTC")
@@ -253,8 +270,14 @@ def _check_obs_content(msg, tag, sender, findings):
         elif child_value(analyte, "qualitative_value") is None:
             add_error(findings, f"{sender} {tag}: an analyte is missing qualitative_value")
 
-    if find_descendant(svc, "OPR") is None:
+    opr = find_descendant(svc, "OPR")
+    if opr is None:
         add_error(findings, f"{sender} {tag}: missing OPR (operator) section")
+    else:
+        operator_id = child_value(opr, "operator_id") or ""
+        if len(operator_id) > 20:
+            add_error(findings, f"{sender} {tag}: User ID is too long "
+                                 f"({len(operator_id)} characters, max 20)")
 
 
 def check_handshake_linkage(messages, findings):
@@ -407,6 +430,22 @@ def _build_analytes(container):
             analytes.append({"name": name, "value": a["qualitative_value"],
                               "method_cd": a["method_cd"], "sco_value": a["sco_value"]})
     return analytes
+
+
+def extract_device_info(messages):
+    """
+    Pulls the instrument's serial number and software version from the
+    HEL.R01 handshake message - sent once per conversation (not once per
+    result), so this is reported separately from extract_results().
+    """
+    for msg in messages:
+        if msg.root.tag == "HEL.R01":
+            dev = find_descendant(msg.root, "DEV")
+            return {
+                "serial_id": child_value(dev, "serial_id"),
+                "sw_version": child_value(dev, "sw_version"),
+            }
+    return {"serial_id": None, "sw_version": None}
 
 
 def extract_results(messages):
