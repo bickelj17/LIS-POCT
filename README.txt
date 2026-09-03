@@ -1,3 +1,10 @@
+*** THIS REPO IS RETIRED ***
+Development has moved to the combined tool, which handles ASTM and
+POCT files in one app:
+  https://github.com/bickelj17/LIS-Analysis
+Please use that repo going forward - this one is kept only for history.
+================================================================
+
 POCT Result File Analysis - How to run
 =======================================
 
